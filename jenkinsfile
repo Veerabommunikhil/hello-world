@@ -3,16 +3,16 @@ pipeline{
     maven 'maven'
     }
     stages {
-        stage("clone") {
-            step {
+        stage("test") {
+            steps {
                 git 'https://github.com/Veerabommunikhil/hello-world.git'
             }
         stage("build") {
-            step {
+            steps {
                 sh 'mvn package'
             }
         stage("test") {
-            step {
+            steps {
                 sh 'mvn test'
             }
         }
