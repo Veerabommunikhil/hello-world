@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('clone') {
             steps {
-                git 'https://github.com/Veerabommunikhil/hello-world.git'
+                sudo git clone https://github.com/Veerabommunikhil/hello-world.git
             }
         }
         stage('build') {
