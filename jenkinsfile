@@ -3,7 +3,7 @@ pipeline{
     maven 'maven'
     }
     stages {
-        stage("test") {
+        stage("clone") {
             step {
                 git 'https://github.com/Veerabommunikhil/hello-world.git'
             }
