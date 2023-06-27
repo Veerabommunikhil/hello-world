@@ -1,0 +1,22 @@
+pipeline{
+    tools{
+    maven 'maven'
+    }
+    stages {
+        stage("test") {
+            step {
+                git 'https://github.com/Veerabommunikhil/hello-world.git'
+            }
+        stage("build") {
+            step {
+                sh 'mvn package'
+            }
+        stage("test") {
+            step {
+                sh 'mvn test'
+            }
+        }
+        }
+        }
+    }
+}
