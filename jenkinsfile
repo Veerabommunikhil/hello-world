@@ -21,5 +21,12 @@ pipeline {
                 sh 'mvn sonar:sonar -Dsonar.host.url=http://34.224.98.34:9000 -Dsonar.login=20ce0148741b26dc0323e08163e9ad9a7ca24cbc'
             }
         }
+        stage('deploy-tomcat') {
+            steps {
+                sshagent(['tomcat8']) {
+                   sh 'scp -i Sample.pem /var/lib/jenkins/workspace/pipeline/webapp/target/webapp-2.war ec2-user@34.224.98.34:~/apache-tomcat-8.5.90/webapps' 
+                }
+            }
+        }
     }
 }        
