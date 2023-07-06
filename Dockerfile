@@ -1,4 +1,2 @@
-FROM tomcat:latest
-RUN cp -R  /usr/local/tomcat/webapps.dist/*  /usr/local/tomcat/webapps
-COPY ./*.war /usr/local/tomcat/webapps
-
+FROM httpd:2.4
+COPY . /usr/local/apache2/htdocs/
